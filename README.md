@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# StudyNotion - EdTech Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Project Overview
+StudyNotion is a comprehensive full-stack EdTech platform that allows educators to create and manage courses while enabling students to enroll, track progress, and complete learning modules. The platform provides user authentication, secure payments, and email notifications for various actions like account creation and course purchases.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🔑 User Authentication & Signup Flow
+1. **User Registration**
+   - Users sign up with email and password.
+   - Passwords are hashed using **bcrypt**.
+   - Email verification is required before logging in.
 
-### `npm start`
+2. **Email Verification**
+   - A unique verification link is sent to the user's email.
+   - Clicking the link activates the account.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **User Login**
+   - Users log in with their verified credentials.
+   - JWT tokens are used for secure session handling.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🎓 Instructor Course Management
+1. **Creating a Course**
+   - Instructors can create courses with structured sections and subsections.
+   - Courses include video lectures, PDFs, and quizzes.
+   - Course content is stored using **Cloudinary**.
+   
+2. **Managing Courses**
+   - Instructors can edit course content anytime.
+   - Courses can be updated with new materials and pricing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Course Data Storage**
+   - Metadata, student progress, and enrollments are stored in **MongoDB**.
+   - Multimedia files are managed via **Cloudinary**.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📚 Student Course Access & Progress Tracking
+1. **Enrolling in Courses**
+   - Students can browse available courses and enroll after payment.
+   - Courses are added to their profile upon successful transaction.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Tracking Progress**
+   - Progress is saved per lecture completion.
+   - Students can resume from where they left off.
+   - Completion percentage is displayed on the dashboard.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⭐ Ratings & Reviews
+- Students can leave ratings and reviews for each lecture.
+- Reviews help instructors improve course quality.
+- Ratings influence future enrollments.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💳 Payment Flow
+1. **User selects a course and proceeds to checkout.**
+2. **Payment is processed securely via Razorpay.**
+3. **Upon success:**
+   - The course is added to the user’s profile.
+   - A confirmation email is sent.
+4. **Upon failure:**
+   - The transaction is aborted, and no changes occur.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📩 Email System Overview
+1. **Signup Email Flow**
+   - Users receive a verification email upon registration.
 
-## Learn More
+2. **Course Purchase Email Flow**
+   - Upon payment, an enrollment confirmation email is sent.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Instructor Notifications**
+   - Instructors receive an email when a new student enrolls in their course.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📊 Instructor Dashboard
+- Displays total enrollments per course.
+- Shows student progress statistics.
+- Revenue generated from courses is updated dynamically.
+- Course performance insights help improve content.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🎯 Student Dashboard
+- Students can view all their enrolled courses.
+- Course completion percentage is displayed.
+- Certificates can be issued upon course completion (if enabled).
+- Students can see feedback and ratings for their enrolled courses.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📂 Folder Structure
+```
+StudyNotion-EdTech-Platform/
+  ├── public/               # Static assets
+  ├── server/               # Backend API
+  │   ├── config/           # Database & Payment Config
+  │   ├── controllers/      # Route Controllers
+  │   ├── middleware/       # Auth Middleware
+  │   ├── models/           # Database Models
+  │   ├── routes/           # API Routes
+  │   ├── mail/             # Email Templates
+  ├── client/               # React Frontend
+  │   ├── src/
+  │   │   ├── components/  # UI Components
+  │   │   ├── pages/       # Page Components
+  │   │   ├── services/    # API Calls
+  ├── package.json          # Dependencies
+  ├── README.md             # Project Documentation
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🤝 Contributing
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature-name`)
+3. Commit changes (`git commit -m 'Add new feature'`)
+4. Push to branch (`git push origin feature-name`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
